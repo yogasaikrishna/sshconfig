@@ -11,16 +11,26 @@
 		50D8C27726CE8FCD002F3C5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D8C27626CE8FCD002F3C5A /* ViewController.swift */; };
 		50D8C27926CE8FCE002F3C5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50D8C27826CE8FCE002F3C5A /* Assets.xcassets */; };
 		50D8C27C26CE8FCE002F3C5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50D8C27A26CE8FCE002F3C5A /* Main.storyboard */; };
+		50D8C28526CE900B002F3C5A /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D8C28426CE900B002F3C5A /* Config.swift */; };
+		50D8C28726CE9063002F3C5A /* ConfigController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D8C28626CE9063002F3C5A /* ConfigController.swift */; };
+		50D8C28D26CEA28C002F3C5A /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D8C28C26CEA28C002F3C5A /* ConfigViewController.swift */; };
+		50D8C28F26CEA3D2002F3C5A /* ShowConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D8C28E26CEA3D2002F3C5A /* ShowConfigViewController.swift */; };
+		50E909C026CF73DE00103E23 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E909BF26CF73DE00103E23 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		50D8C27126CE8FCD002F3C5A /* SSHEdit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSHEdit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		50D8C27126CE8FCD002F3C5A /* SSHConfig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSHConfig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50D8C27426CE8FCD002F3C5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50D8C27626CE8FCD002F3C5A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		50D8C27826CE8FCE002F3C5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50D8C27B26CE8FCE002F3C5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		50D8C27D26CE8FCE002F3C5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		50D8C27E26CE8FCE002F3C5A /* SSHEdit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SSHEdit.entitlements; sourceTree = "<group>"; };
+		50D8C27E26CE8FCE002F3C5A /* SSHConfig.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SSHConfig.entitlements; sourceTree = "<group>"; };
+		50D8C28426CE900B002F3C5A /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		50D8C28626CE9063002F3C5A /* ConfigController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigController.swift; sourceTree = "<group>"; };
+		50D8C28C26CEA28C002F3C5A /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
+		50D8C28E26CEA3D2002F3C5A /* ShowConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowConfigViewController.swift; sourceTree = "<group>"; };
+		50E909BF26CF73DE00103E23 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,7 +47,7 @@
 		50D8C26826CE8FCD002F3C5A = {
 			isa = PBXGroup;
 			children = (
-				50D8C27326CE8FCD002F3C5A /* SSHEdit */,
+				50D8C27326CE8FCD002F3C5A /* SSHConfig */,
 				50D8C27226CE8FCD002F3C5A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -45,12 +55,12 @@
 		50D8C27226CE8FCD002F3C5A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				50D8C27126CE8FCD002F3C5A /* SSHEdit.app */,
+				50D8C27126CE8FCD002F3C5A /* SSHConfig.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		50D8C27326CE8FCD002F3C5A /* SSHEdit */ = {
+		50D8C27326CE8FCD002F3C5A /* SSHConfig */ = {
 			isa = PBXGroup;
 			children = (
 				50D8C27426CE8FCD002F3C5A /* AppDelegate.swift */,
@@ -58,17 +68,22 @@
 				50D8C27826CE8FCE002F3C5A /* Assets.xcassets */,
 				50D8C27A26CE8FCE002F3C5A /* Main.storyboard */,
 				50D8C27D26CE8FCE002F3C5A /* Info.plist */,
-				50D8C27E26CE8FCE002F3C5A /* SSHEdit.entitlements */,
+				50D8C27E26CE8FCE002F3C5A /* SSHConfig.entitlements */,
+				50D8C28426CE900B002F3C5A /* Config.swift */,
+				50D8C28626CE9063002F3C5A /* ConfigController.swift */,
+				50D8C28C26CEA28C002F3C5A /* ConfigViewController.swift */,
+				50D8C28E26CEA3D2002F3C5A /* ShowConfigViewController.swift */,
+				50E909BF26CF73DE00103E23 /* MainViewController.swift */,
 			);
-			path = SSHEdit;
+			path = SSHConfig;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		50D8C27026CE8FCD002F3C5A /* SSHEdit */ = {
+		50D8C27026CE8FCD002F3C5A /* SSHConfig */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 50D8C28126CE8FCE002F3C5A /* Build configuration list for PBXNativeTarget "SSHEdit" */;
+			buildConfigurationList = 50D8C28126CE8FCE002F3C5A /* Build configuration list for PBXNativeTarget "SSHConfig" */;
 			buildPhases = (
 				50D8C26D26CE8FCD002F3C5A /* Sources */,
 				50D8C26E26CE8FCD002F3C5A /* Frameworks */,
@@ -78,9 +93,9 @@
 			);
 			dependencies = (
 			);
-			name = SSHEdit;
+			name = SSHConfig;
 			productName = SSHEdit;
-			productReference = 50D8C27126CE8FCD002F3C5A /* SSHEdit.app */;
+			productReference = 50D8C27126CE8FCD002F3C5A /* SSHConfig.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -97,7 +112,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 50D8C26C26CE8FCD002F3C5A /* Build configuration list for PBXProject "SSHEdit" */;
+			buildConfigurationList = 50D8C26C26CE8FCD002F3C5A /* Build configuration list for PBXProject "SSHConfig" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -110,7 +125,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				50D8C27026CE8FCD002F3C5A /* SSHEdit */,
+				50D8C27026CE8FCD002F3C5A /* SSHConfig */,
 			);
 		};
 /* End PBXProject section */
@@ -132,8 +147,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50E909C026CF73DE00103E23 /* MainViewController.swift in Sources */,
 				50D8C27726CE8FCD002F3C5A /* ViewController.swift in Sources */,
 				50D8C27526CE8FCD002F3C5A /* AppDelegate.swift in Sources */,
+				50D8C28526CE900B002F3C5A /* Config.swift in Sources */,
+				50D8C28F26CEA3D2002F3C5A /* ShowConfigViewController.swift in Sources */,
+				50D8C28D26CEA28C002F3C5A /* ConfigViewController.swift in Sources */,
+				50D8C28726CE9063002F3C5A /* ConfigController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,7 +222,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -257,7 +277,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -271,17 +291,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SSHEdit/SSHEdit.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SSHConfig/SSHConfig.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 973H54W952;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = SSHEdit/Info.plist;
+				INFOPLIST_FILE = SSHConfig/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.saikoneru.SSHEdit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.saikoneru.SSHConfig;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -292,17 +312,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SSHEdit/SSHEdit.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SSHConfig/SSHConfig.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 973H54W952;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = SSHEdit/Info.plist;
+				INFOPLIST_FILE = SSHConfig/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.saikoneru.SSHEdit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.saikoneru.SSHConfig;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -311,7 +331,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		50D8C26C26CE8FCD002F3C5A /* Build configuration list for PBXProject "SSHEdit" */ = {
+		50D8C26C26CE8FCD002F3C5A /* Build configuration list for PBXProject "SSHConfig" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				50D8C27F26CE8FCE002F3C5A /* Debug */,
@@ -320,7 +340,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		50D8C28126CE8FCE002F3C5A /* Build configuration list for PBXNativeTarget "SSHEdit" */ = {
+		50D8C28126CE8FCE002F3C5A /* Build configuration list for PBXNativeTarget "SSHConfig" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				50D8C28226CE8FCE002F3C5A /* Debug */,
