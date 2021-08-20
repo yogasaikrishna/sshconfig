@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		50D8C27526CE8FCD002F3C5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D8C27426CE8FCD002F3C5A /* AppDelegate.swift */; };
-		50D8C27726CE8FCD002F3C5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D8C27626CE8FCD002F3C5A /* ViewController.swift */; };
 		50D8C27926CE8FCE002F3C5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50D8C27826CE8FCE002F3C5A /* Assets.xcassets */; };
 		50D8C27C26CE8FCE002F3C5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50D8C27A26CE8FCE002F3C5A /* Main.storyboard */; };
 		50D8C28526CE900B002F3C5A /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D8C28426CE900B002F3C5A /* Config.swift */; };
@@ -21,7 +20,6 @@
 /* Begin PBXFileReference section */
 		50D8C27126CE8FCD002F3C5A /* SSHConfig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSHConfig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50D8C27426CE8FCD002F3C5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		50D8C27626CE8FCD002F3C5A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		50D8C27826CE8FCE002F3C5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50D8C27B26CE8FCE002F3C5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		50D8C27D26CE8FCE002F3C5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -64,7 +62,6 @@
 			isa = PBXGroup;
 			children = (
 				50D8C27426CE8FCD002F3C5A /* AppDelegate.swift */,
-				50D8C27626CE8FCD002F3C5A /* ViewController.swift */,
 				50D8C27826CE8FCE002F3C5A /* Assets.xcassets */,
 				50D8C27A26CE8FCE002F3C5A /* Main.storyboard */,
 				50D8C27D26CE8FCE002F3C5A /* Info.plist */,
@@ -148,7 +145,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				50E909C026CF73DE00103E23 /* MainViewController.swift in Sources */,
-				50D8C27726CE8FCD002F3C5A /* ViewController.swift in Sources */,
 				50D8C27526CE8FCD002F3C5A /* AppDelegate.swift in Sources */,
 				50D8C28526CE900B002F3C5A /* Config.swift in Sources */,
 				50D8C28F26CEA3D2002F3C5A /* ShowConfigViewController.swift in Sources */,

@@ -32,6 +32,12 @@ class ConfigViewController: NSViewController {
                     configTable.reloadData()
                     view.window?.subtitle = ""
                     configController.saveFile()
+                    
+                    if let showConfigVC = parent?.children[1] as? ShowConfigViewController {
+                        showConfigVC.configStackView.isHidden = true
+                        showConfigVC.labelStackView.isHidden = false
+                    }
+                    
                     (NSApplication.shared.delegate as? AppDelegate)?.configureMenuItems()
                 }
             }

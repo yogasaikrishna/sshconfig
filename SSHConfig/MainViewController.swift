@@ -17,6 +17,14 @@ class MainViewController: NSSplitViewController {
     @IBAction func createConfig(_ sender: NSView) {
         let config = Config(host: "New Host", hostName: "", port: "", user: "", identityFilePath: "")
         configController.configs.append(config)
-        (children[0] as? ConfigViewController)?.configTable.reloadData()
+        if let configVC = children[0] as? ConfigViewController {
+            let configTable = configVC.configTable
+            configTable!.reloadData()
+            
+            let index = configController.configs.count - 1
+            
+            configTable!.selectRowIndexes(IndexSet(integer: index), byExtendingSelection: false)
+            configTable?.scrollRowToVisible(index)
+        }
     }
 }
