@@ -1,6 +1,6 @@
 //
 //  ShowConfigViewController.swift
-//  SSHEdit
+//  SSHConfig
 //
 //  Created by Sai Koneru on 19/08/2021.
 //

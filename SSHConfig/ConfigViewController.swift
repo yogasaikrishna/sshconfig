@@ -1,6 +1,6 @@
 //
 //  ConfigViewController.swift
-//  SSHEdit
+//  SSHConfig
 //
 //  Created by Sai Koneru on 19/08/2021.
 //
@@ -15,7 +15,6 @@ class ConfigViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
     }
     
     @IBAction func deleteConfig(_ sender: NSView) {
@@ -55,7 +54,7 @@ extension ConfigViewController: NSTableViewDataSource {
         guard let view = tableView.makeView(withIdentifier: tableColumn!.identifier, owner: self) as? NSTableCellView else { return nil }
         view.textField?.stringValue = configController.configs[row].host
         return view
-    }    
+    }
 }
 
 // MARK: Table Delegate

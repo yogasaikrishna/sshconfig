@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  SSHEdit
+//  SSHConfig
 //
 //  Created by Sai Koneru on 19/08/2021.
 //
@@ -51,8 +51,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func configureMenuItems() {
         let firstIndex = menu.index(of: firstMenuItem)
         let lastIndex = menu.index(of: lastMenuItem)
-        for itemIndex in firstIndex..<lastIndex - 1 {
-            menu.removeItem(at: itemIndex + 1)
+        for _ in firstIndex..<lastIndex - 1 {
+            menu.removeItem(at: 1)
         }
         for config in configController.configs.reversed() {
             let menuItem = NSMenuItem(title: config.host, action: #selector(launchConfig), keyEquivalent: "")
