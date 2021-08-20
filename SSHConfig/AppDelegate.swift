@@ -12,6 +12,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let configController = ConfigController.shared
     @IBOutlet var menu: NSMenu!
     @IBOutlet var firstMenuItem: NSMenuItem!
+    @IBOutlet var lastMenuItem: NSMenuItem!
     
     var statusItem: NSStatusItem!
 
@@ -23,7 +24,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @objc func launchConfig(_ sender: NSMenuItem) {
-        let script = "tell application \"Terminal\" to do script \"ssh \(sender.title)\""
+        let script = """
+            tell application "Terminal"
+                do script "ssh \(sender.title)"
+                delay 0.25
+                activate
+            end tell
+        """
         var error: NSDictionary?
         if let scriptObject = NSAppleScript(source: script) {
             scriptObject.executeAndReturnError(&error)
@@ -34,23 +41,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: Bundle.main)
         let window = storyboard.instantiateController(withIdentifier: "MainWindow") as! NSWindowController
         window.showWindow(self)
-        window.becomeFirstResponder()
-        
+        let script = "tell application \"SSHConfig\" to activate"
+        var error: NSDictionary?
+        if let activateScript = NSAppleScript(source: script) {
+            activateScript.executeAndReturnError(&error)
+        }
     }
     
     func configureMenuItems() {
-        let index = menu.index(of: firstMenuItem)
-        for itemIndex in 0..<index {
-            menu.removeItem(at: itemIndex)
+        let firstIndex = menu.index(of: firstMenuItem)
+        let lastIndex = menu.index(of: lastMenuItem)
+        for itemIndex in firstIndex..<lastIndex - 1 {
+            menu.removeItem(at: itemIndex + 1)
         }
         for config in configController.configs.reversed() {
             let menuItem = NSMenuItem(title: config.host, action: #selector(launchConfig), keyEquivalent: "")
-            menu.insertItem(menuItem, at: 0)
+            menu.insertItem(menuItem, at: firstIndex + 1)
         }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
-        
     }
 }
 

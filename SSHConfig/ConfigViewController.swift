@@ -55,7 +55,7 @@ extension ConfigViewController: NSTableViewDataSource {
         guard let view = tableView.makeView(withIdentifier: tableColumn!.identifier, owner: self) as? NSTableCellView else { return nil }
         view.textField?.stringValue = configController.configs[row].host
         return view
-    }
+    }    
 }
 
 // MARK: Table Delegate

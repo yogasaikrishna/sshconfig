@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,6 +15,9 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="SSHConfig" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
+                                        <menuItem title="Available Configurations" enabled="NO" id="9UB-Tg-Rwo">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="Hvo-yk-9uW"/>
                                         <menuItem title="About SSHConfig" id="5kV-Vb-QxS">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -46,7 +49,8 @@
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="SSHConfig" customModuleProvider="target">
                     <connections>
-                        <outlet property="firstMenuItem" destination="Hvo-yk-9uW" id="L8M-fP-bqm"/>
+                        <outlet property="firstMenuItem" destination="9UB-Tg-Rwo" id="ySA-i5-lut"/>
+                        <outlet property="lastMenuItem" destination="Hvo-yk-9uW" id="4Vb-2R-S9F"/>
                         <outlet property="menu" destination="uQy-DD-JDr" id="IF9-zQ-LGa"/>
                     </connections>
                 </customObject>
