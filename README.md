@@ -6,8 +6,8 @@ SSHConfig runs in the menu bar and let's you quickly connect to all your servers
 ### Screenshots
 Manage all you connections from a single place, easy to edit or delete
 
-![Main Screen](/Screenshots/MainScreen.jpg?raw=true "Main Screen")
+![Main Screen](/Screenshots/Main.jpg?raw=true "Main Screen")
 
 Always running in menu bar allowing for quick access and connection with single click
 
-![Menu Bar](/Screenshots/MenuBar.jpg?raw=true "Menu Bar")
+![Menu Bar](/Screenshots/Menu.jpg?raw=true "Menu Bar")
