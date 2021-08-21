@@ -59,4 +59,18 @@ class ShowConfigViewController: NSViewController {
         
         (parent?.children[0] as? ConfigViewController)?.configTable.reloadData()
     }
+    
+    @IBAction func chooseFile(_ sender: NSButton) {
+        let dialog = NSOpenPanel()
+        dialog.title = "Choose a file"
+        dialog.showsHiddenFiles = true
+        dialog.allowsMultipleSelection = false
+        dialog.canChooseDirectories = false
+        
+        if dialog.runModal() == NSApplication.ModalResponse.OK {
+            if let result = dialog.url {
+                identityFile.stringValue = result.path
+            }
+        }
+    }
 }
