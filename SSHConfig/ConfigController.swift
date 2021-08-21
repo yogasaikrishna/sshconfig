@@ -115,24 +115,18 @@ class ConfigController {
             """
         }
         
-        var configPath = path.appendingPathComponent("config")
-        
-        if let fileExtension = withExtension {
-            configPath.appendPathExtension(fileExtension)
-        }
-
         do {
-            try data.write(to: configPath, atomically: true, encoding: .ascii)
+            try data.write(to: path, atomically: true, encoding: .ascii)
         } catch {
             fatalError("Failed to save configuration \(error.localizedDescription)")
         }
     }
     
     func saveFile(at path: URL? = nil, withExtension: String? = nil) {
-        if let path = path, let fileExtension = withExtension {
-            save(at: path, withExtension: fileExtension)
+        if let path = path {
+            save(at: path, withExtension: withExtension)
         } else {
-            save(at: getConfigDirectory())
+            save(at: getConfigPath())
         }
     }
 }

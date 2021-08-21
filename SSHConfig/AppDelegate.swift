@@ -51,15 +51,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func exportConfigurations(_ sender: NSMenuItem) {
-        let dialog = NSOpenPanel()
-        dialog.title = "Choose destination folder"
-        dialog.allowsMultipleSelection = false
-        dialog.canChooseDirectories = true
-        dialog.canChooseFiles = false
+        let savePanel = NSSavePanel()
+        savePanel.title = "Save Configuration"
+        savePanel.prompt = "OK"
+        savePanel.nameFieldStringValue = "config.txt"
         
-        if dialog.runModal() == NSApplication.ModalResponse.OK {
-            if let path = dialog.url {
-                configController.saveFile(at: path, withExtension: "txt")
+        if savePanel.runModal() == NSApplication.ModalResponse.OK {
+            if let fileWithExtensionURL = savePanel.url {
+                configController.saveFile(at: fileWithExtensionURL)
             }
         }
     }
@@ -80,4 +79,3 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ aNotification: Notification) {
     }
 }
-
