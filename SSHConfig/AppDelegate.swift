@@ -24,9 +24,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @objc func launchConfig(_ sender: NSMenuItem) {
+        let homeDirectory = FileManager.default.homeDirectoryForCurrentUser
+        let configPath = homeDirectory.appendingPathComponent(".sshconfig/config")
+
         let script = """
             tell application "Terminal"
-                do script "ssh \(sender.title)"
+                do script "ssh -F \(configPath.relativePath) \(sender.title)"
                 delay 0.25
                 activate
             end tell

@@ -51,13 +51,21 @@ class ShowConfigViewController: NSViewController {
         configController.configs[index].user = user.stringValue
         configController.configs[index].identityFilePath = identityFile.stringValue
         
-        configController.saveFile()
-        
-        view.window?.subtitle = host.stringValue
-        
-        (NSApplication.shared.delegate as? AppDelegate)?.configureMenuItems()
-        
-        (parent?.children[0] as? ConfigViewController)?.configTable.reloadData()
+        if !configController.isConfigComplete(configController.configs[index]) {
+            let alert = NSAlert()
+            alert.addButton(withTitle: "OK")
+            alert.messageText = "Missing configuration"
+            alert.informativeText = "Please fill all the fields before saving"
+            alert.beginSheetModal(for: self.view.window!)
+        } else {
+            configController.saveFile()
+            
+            view.window?.subtitle = host.stringValue
+            
+            (NSApplication.shared.delegate as? AppDelegate)?.configureMenuItems()
+            
+            (parent?.children[0] as? ConfigViewController)?.configTable.reloadData()
+        }
     }
     
     @IBAction func chooseFile(_ sender: NSButton) {

@@ -9,9 +9,9 @@ import Foundation
 
 struct Config {
     let id = UUID()
-    var host: String
-    var hostName: String
-    var port: String
-    var user: String
-    var identityFilePath: String
+    var host: String = ""
+    var hostName: String = ""
+    var port: String = ""
+    var user: String = ""
+    var identityFilePath: String = ""
 }
