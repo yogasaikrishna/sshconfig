@@ -33,7 +33,7 @@ class ConfigController {
             do {
                 try fileManager.copyItem(at: existingConfigPath, to: configPath)
             } catch {
-                fatalError("Error copying file to \(configPath.relativePath)")
+                print("Error copying file to \(configPath.relativePath)")
             }
         }
 
