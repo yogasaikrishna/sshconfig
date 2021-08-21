@@ -12,20 +12,24 @@ class ConfigController {
     var configs: [Config] = []
     let fileManager = FileManager.default
     
-    init() {
-        let homeDirectory = fileManager.homeDirectoryForCurrentUser
-        let existingConfigPath = homeDirectory.appendingPathComponent(".ssh/config")
-        let configDirectory = homeDirectory.appendingPathComponent(".sshconfig")
-        let configPath = configDirectory.appendingPathComponent("config")
+    private init() {
+        let existingConfigPath = getExistingConfigPath()
+        let configPath = getConfigPath()
+        let configDirectory = getConfigDirectory()
         
-        if !fileManager.fileExists(atPath: configPath.relativePath) &&
-            fileManager.fileExists(atPath: existingConfigPath.relativePath) {
+        // Create .sshconfig directory in user home folder if not exists already
+        if !fileManager.fileExists(atPath: configDirectory.relativePath) {
             do {
-                try fileManager.createDirectory(atPath: configDirectory.relativePath, withIntermediateDirectories: true, attributes: nil)
+                try fileManager.createDirectory(atPath: configDirectory.relativePath,
+                                                withIntermediateDirectories: true, attributes: nil)
             } catch {
                 fatalError("Error creating config directory at path \(configDirectory.relativePath)")
             }
-            
+        }
+        
+        // If there an existing config file, copy it into newly created folder
+        if !fileManager.fileExists(atPath: configPath.relativePath) &&
+            fileManager.fileExists(atPath: existingConfigPath.relativePath) {
             do {
                 try fileManager.copyItem(at: existingConfigPath, to: configPath)
             } catch {
@@ -33,6 +37,7 @@ class ConfigController {
             }
         }
 
+        // Read the file from .sshconfig folder
         if fileManager.fileExists(atPath: configPath.relativePath) {
             guard let content = try? String(contentsOf: configPath) else {
                 fatalError("Failed to load config file")
@@ -46,7 +51,7 @@ class ConfigController {
         }
     }
     
-    func parse(_ content: String, with separator: String) {
+    private func parse(_ content: String, with separator: String) {
         let lines = content.split(separator: "\n")
         var config = Config()
         for line in lines {
@@ -54,7 +59,6 @@ class ConfigController {
                 let newLine = line.replacingOccurrences(of: separator, with: "#").replacingOccurrences(of: "\"", with: "")
                 let lineContent = newLine.split(separator: "#")
                 let count = lineContent.count
-                print(lineContent)
                 switch lineContent[0].lowercased() {
                 case "host":
                     config.host = count > 1 ? String(lineContent[1]) : ""
@@ -78,6 +82,18 @@ class ConfigController {
         }
     }
     
+    private func getExistingConfigPath() -> URL {
+        return fileManager.homeDirectoryForCurrentUser.appendingPathComponent(".ssh/config")
+    }
+    
+    private func getConfigDirectory() -> URL {
+        return fileManager.homeDirectoryForCurrentUser.appendingPathComponent(".sshconfig")
+    }
+    
+    func getConfigPath() -> URL {
+        return fileManager.homeDirectoryForCurrentUser.appendingPathComponent(".sshconfig/config")
+    }
+    
     func isConfigComplete(_ config: Config) -> Bool {
         return !config.host.isEmpty &&
             !config.hostName.isEmpty &&
@@ -86,7 +102,7 @@ class ConfigController {
             !config.identityFilePath.isEmpty
     }
     
-    func saveFile() {
+    private func save(at path: URL, withExtension: String? = nil) {
         var data = ""
         for config in configs {
             data += """
@@ -98,12 +114,25 @@ class ConfigController {
             \n
             """
         }
-        let homeDirectory = fileManager.homeDirectoryForCurrentUser
-        let configPath = homeDirectory.appendingPathComponent(".sshconfig/config")
+        
+        var configPath = path.appendingPathComponent("config")
+        
+        if let fileExtension = withExtension {
+            configPath.appendPathExtension(fileExtension)
+        }
+
         do {
             try data.write(to: configPath, atomically: true, encoding: .ascii)
         } catch {
             fatalError("Failed to save configuration \(error.localizedDescription)")
+        }
+    }
+    
+    func saveFile(at path: URL? = nil, withExtension: String? = nil) {
+        if let path = path, let fileExtension = withExtension {
+            save(at: path, withExtension: fileExtension)
+        } else {
+            save(at: getConfigDirectory())
         }
     }
 }

@@ -24,8 +24,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @objc func launchConfig(_ sender: NSMenuItem) {
-        let homeDirectory = FileManager.default.homeDirectoryForCurrentUser
-        let configPath = homeDirectory.appendingPathComponent(".sshconfig/config")
+        let configPath = configController.getConfigPath()
 
         let script = """
             tell application "Terminal"
@@ -51,6 +50,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
+    @IBAction func exportConfigurations(_ sender: NSMenuItem) {
+        let dialog = NSOpenPanel()
+        dialog.title = "Choose destination folder"
+        dialog.allowsMultipleSelection = false
+        dialog.canChooseDirectories = true
+        dialog.canChooseFiles = false
+        
+        if dialog.runModal() == NSApplication.ModalResponse.OK {
+            if let path = dialog.url {
+                configController.saveFile(at: path, withExtension: "txt")
+            }
+        }
+    }
+    
     func configureMenuItems() {
         let firstIndex = menu.index(of: firstMenuItem)
         let lastIndex = menu.index(of: lastMenuItem)
@@ -58,7 +71,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             menu.removeItem(at: 1)
         }
         for config in configController.configs.reversed() {
-            let menuItem = NSMenuItem(title: config.host, action: #selector(launchConfig), keyEquivalent: "")
+            let menuItem = NSMenuItem(title: config.host,
+                                      action: #selector(launchConfig), keyEquivalent: "")
             menu.insertItem(menuItem, at: firstIndex + 1)
         }
     }
